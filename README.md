@@ -239,7 +239,7 @@ Main design stages:
 
 Final Status
 
-✅ **0 DRC Errors**
+**0 DRC Errors**
 
 ---
 
