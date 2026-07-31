@@ -1,178 +1,137 @@
+<div align="center">
+
 # CANCore Shield
 
+A professional **Arduino UNO CAN-Bus Shield** designed in **Altium Designer**, featuring CAN communication, microSD storage, power management, and hardware improvements over existing open-source designs.
+
 ![Altium Designer](https://img.shields.io/badge/Altium-Designer-A5915F?style=for-the-badge)
+![Arduino UNO](https://img.shields.io/badge/Arduino-UNO-00979D?style=for-the-badge)
+![CAN Bus](https://img.shields.io/badge/CAN-Bus-red?style=for-the-badge)
 ![PCB](https://img.shields.io/badge/PCB-2_Layers-success?style=for-the-badge)
 ![DRC](https://img.shields.io/badge/DRC-0_Errors-brightgreen?style=for-the-badge)
 ![Gerbers](https://img.shields.io/badge/Gerbers-Ready-blue?style=for-the-badge)
-![License](https://img.shields.io/badge/Open_Hardware-Project-orange?style=for-the-badge)
+![Open Hardware](https://img.shields.io/badge/Open-Hardware-orange?style=for-the-badge)
+![Embedded Systems](https://img.shields.io/badge/Embedded-Systems-blueviolet?style=for-the-badge)
+
+---
+
+Designed by **Ayoub ELBOUHI**
+
+Electrical Engineering & Embedded Systems Student
+
+ENSA Marrakech
+
+</div>
 
 ---
 
 # Overview
 
-**CANCore Shield** is a professional two-layer Arduino UNO CAN-Bus Shield designed in **Altium Designer** for embedded systems, industrial automation, robotics and automotive communication.
+CANCore Shield is a compact **Arduino UNO expansion board** developed for **CAN-Bus communication** and **embedded system applications**.
 
-The project was inspired by well-known open hardware CAN shields such as the **Seeed Studio CAN-BUS Shield**, while introducing several hardware improvements focused on reliability, protection, debugging, thermal performance and manufacturability.
+The project was inspired by existing open-hardware CAN shields (including the Seeed Studio CAN-BUS Shield) but redesigned from scratch with several improvements focused on:
 
-The repository contains everything required to understand, reproduce and manufacture the board.
+- Hardware reliability
+- Power management
+- SD card compatibility
+- PCB organization
+- Ease of debugging
+- Manufacturing readiness
+
+The entire project was designed using **Altium Designer**, following professional PCB design practices and successfully verified with **0 Design Rule Check (DRC) errors**.
 
 ---
 
-# Project Features
+# Key Features
 
-- Arduino UNO Shield Compatible
+- Arduino UNO Shield Form Factor
 - MCP2515 CAN Controller
-- MCP2562 Automotive CAN Transceiver
-- microSD Card Interface
-- Grove UART Connector
-- Grove I²C Connector
-- Configurable 120Ω CAN Termination
-- Advanced Power Protection
-- Logic Level Translation
-- Hardware Debug LEDs
+- TJA1050 CAN Transceiver
+- SPI microSD Card Interface
+- Bidirectional Logic Level Translator
+- Dedicated Power Management Circuit
+- ON/OFF Power Switch
+- Power & Status LEDs
 - Optimized Ground Planes
-- Thermal Management
-- Complete 3D Model
-- Manufacturing Ready Gerbers
-- DRC Verified (0 Errors)
+- Two-Layer PCB
+- STEP 3D Model Included
+- Manufacturing Ready
+- Fully DRC Verified
 
 ---
 
 # Design Improvements
 
-Unlike conventional Arduino CAN-Bus shields available online, this design introduces several hardware enhancements intended to improve robustness, safety and usability.
+Unlike the reference open-source designs, this project introduces several hardware enhancements.
 
-## Advanced Power Protection
+## Power Management
 
-One of the largest improvements in this project is the complete redesign of the power stage.
-
-Instead of using only a voltage regulator, the board integrates a professional protection front-end including:
-
-- TPS26620 eFuse
-- SI7465 External MOSFET
-- Over-Voltage Protection (OVP)
-- Under-Voltage Protection (UVLO)
-- Current Limiting
-- TVS Protection
-- Zener Protection
-- Ferrite Bead Filtering
-- Power Filtering Capacitors
-
-This greatly increases board reliability and protects both the Arduino and external peripherals against electrical faults.
-
----
-
-## Improved microSD Interface
-
-A dedicated **SN74LVC125A** logic level translator was added between the Arduino (5V) and the microSD card (3.3V).
+A dedicated **ON/OFF switch** allows complete control of the shield power without unplugging the Arduino board.
 
 Benefits:
 
-- Safe voltage translation
-- Improved communication reliability
-- Protects the SD card from direct 5V signals
-- Better compatibility with high-speed SPI communication
+- Easier testing
+- Faster debugging
+- Better user experience
 
 ---
 
-## Modern Automotive CAN Transceiver
+## Safer microSD Interface
 
-Instead of the older **MCP2551** commonly found on legacy shields, this project uses:
+A **bidirectional logic level translator** was added between the Arduino (5V) and the microSD card (3.3V).
 
-**Microchip MCP2562**
+Benefits:
 
-Advantages:
-
-- Automotive qualified
-- Improved EMC performance
-- Lower power consumption
-- Higher robustness
+- Protects the SD card
+- Improves compatibility
+- Reliable SPI communication
+- Safe voltage conversion
 
 ---
 
-## Extended Hardware Debugging
+## Visual Status Indicators
 
-Additional hardware status LEDs were integrated for easier debugging.
+Dedicated LEDs provide immediate visual feedback regarding board operation.
 
-The board provides visual indication for:
+Useful for:
 
-- Power Status
-- UART TX
-- UART RX
-- CAN TX
-- CAN RX
-- CAN Interrupt Activity
-
-These indicators simplify debugging without requiring external measurement equipment.
-
----
-
-## Configurable CAN Bus Termination
-
-The shield includes a selectable **120 Ω termination resistor** using a jumper.
-
-This allows the board to be configured as:
-
-- End node
-- Intermediate node
-
-making it suitable for various CAN network topologies.
-
----
-
-## Improved Connectivity
-
-Additional expansion connectors were integrated:
-
-- Grove UART
-- Grove I²C
-
-These connectors simplify sensor integration and rapid prototyping.
+- Power verification
+- Debugging
+- Development
 
 ---
 
 ## PCB Layout Optimization
 
-Special attention was given to PCB layout quality.
+The PCB was completely redesigned instead of copying an existing layout.
 
 Improvements include:
 
-- Optimized component placement
-- Reduced routing complexity
-- Large GND copper pours
-- Better return current paths
-- Improved signal integrity
-- Reduced electrical noise
+- Cleaner routing
+- Better component placement
+- Optimized SPI routing
+- Improved CAN signal organization
+- Large continuous ground pours
+- Easier maintenance
 
 ---
 
-## Thermal Optimization
+## Manufacturing Ready
 
-To improve heat dissipation, thermal optimization techniques were implemented:
+The board has been fully verified using Altium Designer DRC.
 
-- Thermal vias around power devices
-- Improved copper distribution
-- Better heat spreading through ground planes
+Included manufacturing outputs:
 
-This helps maintain lower operating temperatures during extended operation.
+- Gerber Files
+- NC Drill Files
+- STEP Mechanical Model
 
----
+Ready for fabrication using:
 
-## Manufacturing Optimization
-
-The PCB has been completely verified before release.
-
-Final verification includes:
-
-- Design Rule Check (DRC)
-- Copper Pour Verification
-- 3D Mechanical Verification
-- Gerber Generation
-- NC Drill Generation
-
-Final Status:
-
-**0 DRC Errors**
+- JLCPCB
+- PCBWay
+- Seeed Fusion
+- Aisler
 
 ---
 
@@ -196,6 +155,27 @@ Final Status:
 
 ---
 
+# Project Architecture
+
+```
+                       Arduino UNO
+                            │
+        ┌───────────────────┼────────────────────┐
+        │                   │                    │
+        ▼                   ▼                    ▼
+   MCP2515 CAN         microSD Interface     Power Supply
+   Controller          + Level Translator     + Switch
+        │
+        ▼
+   TJA1050 CAN
+   Transceiver
+        │
+        ▼
+   CAN Bus Connector
+```
+
+---
+
 # Repository Structure
 
 ```
@@ -205,24 +185,21 @@ CANCoreShield
 │   ├── PCB_3D.png
 │   ├── PCB_Back.png
 │   ├── PCB_Top.png
-│   └── README.md
 │
 ├── Manufacturing
-│   ├── CANCoreShield_Gerbers.zip
-│   └── .gitkeep
+│   └── CANCoreShield_Gerbers.zip
 │
 ├── Schematics
 │   ├── TOP_Sheet.SchDoc
 │   ├── 01_Arduino_IO.SchDoc
 │   ├── 02_CAN.SchDoc
 │   ├── 03_SD_Card.SchDoc
-│   ├── 04_Power.SchDoc
-│   └── README.md
+│   └── 04_Power.SchDoc
 │
-├── CANCore Shield 3D View.step
-├── CANCore Shield.OutJob
 ├── CANCore Shield.PcbDoc
 ├── CANCore Shield.PrjPcb
+├── CANCore Shield.OutJob
+├── CANCore Shield 3D View.step
 └── CANCore Shield.pdf
 ```
 
@@ -230,59 +207,19 @@ CANCoreShield
 
 # Schematics
 
-The project schematic is organized into four functional blocks:
+The hardware is divided into four functional hierarchical sheets:
 
-### 01 — Arduino I/O
+| Sheet | Description |
+|-------|-------------|
+| 01 | Arduino Interface |
+| 02 | CAN Communication |
+| 03 | microSD Interface |
+| 04 | Power Supply |
 
-Contains:
-
-- Arduino UNO interface
-- SPI connections
-- UART interface
-- I²C interface
-- Expansion headers
-
----
-
-### 02 — CAN Communication
-
-Contains:
-
-- MCP2515 CAN Controller
-- MCP2562 CAN Transceiver
-- CAN Bus Protection
-- CAN Termination Network
-- DB9 Connector
-- Screw Terminal
-
----
-
-### 03 — microSD Card
-
-Contains:
-
-- microSD Socket
-- SN74LVC125A Logic Level Translator
-- SPI Routing
-- Filtering Components
-
----
-
-### 04 — Power Supply
-
-Contains:
-
-- TPS26620 eFuse
-- SI7465 MOSFET
-- Protection Circuit
-- Voltage Regulation
-- Filtering Network
-- Power Switch
-
-All source schematic files are available inside:
+The complete PDF schematic is included in:
 
 ```
-Schematics/
+CANCore Shield.pdf
 ```
 
 ---
@@ -295,21 +232,20 @@ Main design stages:
 
 - Schematic Capture
 - Component Placement
-- Interactive Routing
-- Copper Pour
-- Thermal Optimization
-- 3D Mechanical Verification
-- DRC Verification
+- Manual Routing
+- Copper Pours
+- 3D Verification
+- Design Rule Check
 
-Final DRC Result:
+Final Status
 
-✅ **0 Errors**
+✅ **0 DRC Errors**
 
 ---
 
-# Manufacturing
+# Manufacturing Files
 
-Fabrication files are available inside:
+Located in:
 
 ```
 Manufacturing/
@@ -317,15 +253,9 @@ Manufacturing/
 
 Included:
 
-- Gerber Files
-- NC Drill Files
-
-Compatible with manufacturers such as:
-
-- JLCPCB
-- PCBWay
-- Seeed Fusion
-- ALLPCB
+- Gerbers
+- NC Drill
+- Ready for fabrication
 
 ---
 
@@ -337,33 +267,9 @@ A complete STEP model is provided for mechanical integration.
 CANCore Shield 3D View.step
 ```
 
-Compatible with:
-
-- SolidWorks
-- Fusion 360
-- FreeCAD
-- Inventor
-
 ---
 
-# Documentation
-
-The complete project documentation is available in:
-
-```
-CANCore Shield.pdf
-```
-
-The document includes:
-
-- Complete Schematics
-- PCB Layout
-- Component Placement
-- Design Overview
-
----
-
-# Software Used
+# Software
 
 - Altium Designer
 - CAMtastic
@@ -373,14 +279,20 @@ The document includes:
 
 # Future Improvements
 
-Potential future enhancements include:
+Possible future versions may include:
 
 - CAN FD Support
-- USB-C Power Input
+- ESD Protection
 - Reverse Polarity Protection
-- Automotive Diagnostic Connector
+- Power Monitoring
+- Additional Status LEDs
 - Isolated CAN Interface
-- On-board Power Monitoring
+
+---
+
+# Acknowledgments
+
+This project was inspired by several open-hardware CAN shield designs, particularly the **Seeed Studio CAN-BUS Shield**, while introducing multiple hardware and PCB improvements tailored for educational and embedded system applications.
 
 ---
 
@@ -398,4 +310,4 @@ https://github.com/aelbouhi0131
 
 ---
 
-If you found this project useful, consider giving the repository a ⭐.
+If you found this project useful, consider giving it a ⭐ on GitHub.
