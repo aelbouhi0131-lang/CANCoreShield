@@ -78,7 +78,7 @@ Benefits:
 
 ## Safer microSD Interface
 
-A **bidirectional logic level translator** was added between the Arduino (5V) and the microSD card (3.3V).
+A **unidirectional logic level translator** was added between the Arduino (5V) and the microSD card (3.3V).
 
 Benefits:
 
